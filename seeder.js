@@ -120,7 +120,15 @@ const backupData = async (query) => {
     process.exit();
   }
 };
-
+const glimpse = async () => {
+  try {
+    let userResponse = await User.find();
+    console.log("Db has " + userResponse.length + " user(s)");
+    process.exit();
+  } catch (err) {
+    console.error(err);
+  }
+};
 const deleteData = async () => {
   try {
     await User.deleteMany();
@@ -147,4 +155,6 @@ if (process.argv[2] === "-i") {
 } else if (process.argv[2] === "-b") {
   // node seeder -b
   createFiles().then(backupData(process.argv[3] ?? {}));
+} else if (process.argv[2] === "-g") {
+  glimpse();
 }

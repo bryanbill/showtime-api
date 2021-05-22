@@ -1,4 +1,4 @@
-const express = require('express')
+const express = require("express");
 const {
   getVideos,
   getVideo,
@@ -6,59 +6,59 @@ const {
   updateVideo,
   updateViews,
   uploadVideoThumbnail,
-  deleteVideo
-} = require('../controllers/videos')
+  deleteVideo,
+} = require("../controllers/videos");
 
-const Video = require('../models/Video')
+const Video = require("../models/Video");
 
-const router = express.Router()
+const router = express.Router();
 
-const advancedResults = require('../middleware/advancedResults')
-const { protect } = require('../middleware/auth')
+const advancedResults = require("../middleware/advancedResults");
+const { protect } = require("../middleware/auth");
 
-router.post('/', protect, videoUpload)
+router.post("/", protect, videoUpload);
 
-router.route('/private').get(
+router.route("/private").get(
   protect,
   advancedResults(
     Video,
     [
-      { path: 'userId' },
-      { path: 'categoryId' },
-      { path: 'likes' },
-      { path: 'dislikes' },
-      { path: 'comments' }
+      { path: "userId" },
+      { path: "categoryId" },
+      { path: "likes" },
+      { path: "dislikes" },
+      { path: "comments" },
     ],
     {
-      status: 'private'
+      status: "private",
     }
   ),
   getVideos
-)
+);
 
 router
-  .route('/public')
+  .route("/public")
   .get(
     advancedResults(
       Video,
       [
-        { path: 'userId' },
-        { path: 'categoryId' },
-        { path: 'likes' },
-        { path: 'dislikes' }
+        { path: "userId" },
+        { path: "categoryId" },
+        { path: "likes" },
+        { path: "dislikes" },
       ],
-      { status: 'public' }
+      { status: "public" }
     ),
     getVideos
-  )
+  );
 
 router
-  .route('/:id')
+  .route("/:id")
   .get(getVideo)
   .put(protect, updateVideo)
-  .delete(protect, deleteVideo)
+  .delete(protect, deleteVideo);
 
-router.route('/:id/thumbnails').put(protect, uploadVideoThumbnail)
-router.route('/:id/views').put(protect, updateViews)
+router.route("/:id/thumbnails").put(protect, uploadVideoThumbnail);
+router.route("/:id/views").put(protect, updateViews);
 
-module.exports = router
+module.exports = router;

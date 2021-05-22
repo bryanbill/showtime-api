@@ -10,4 +10,11 @@ const advancedResults = require("../middleware/advancedResults");
 const { protect } = require("../middleware/auth");
 router.post("/", protect, storyCreate);
 
-router.route("/public").get(advancedResults(Story, [{ path: "userId" }]));
+router
+  .route("/public")
+  .get(
+    advancedResults(Story, [{ path: "userId" }], { status: "public" }),
+    getStories
+  );
+
+module.exports = router;

@@ -1,1 +1,38 @@
-[]
+[
+  {
+    "photoUrl": "no-photo.jpg",
+    "role": "user",
+    "_id": "608c9374f245cc0015c19630",
+    "channelName": "Test",
+    "email": "bb0721899@gmail.com",
+    "createdAt": "2021-04-30T23:32:04.769Z",
+    "updatedAt": "2021-04-30T23:32:04.769Z",
+    "__v": 0,
+    "subscribers": 1,
+    "id": "608c9374f245cc0015c19630"
+  },
+  {
+    "photoUrl": "no-photo.jpg",
+    "role": "user",
+    "_id": "609bd4ba4c4aa300151bd412",
+    "channelName": "Hello",
+    "email": "hello@myemail.com",
+    "createdAt": "2021-05-12T13:14:34.704Z",
+    "updatedAt": "2021-05-12T13:14:34.704Z",
+    "__v": 0,
+    "subscribers": 0,
+    "id": "609bd4ba4c4aa300151bd412"
+  },
+  {
+    "photoUrl": "no-photo.jpg",
+    "role": "user",
+    "_id": "60a4489728b8a86050d619cd",
+    "channelName": "Bill thee Creator",
+    "email": "bryanomondi254@gmail.com",
+    "createdAt": "2021-05-18T23:07:04.682Z",
+    "updatedAt": "2021-05-18T23:07:04.682Z",
+    "__v": 0,
+    "subscribers": 0,
+    "id": "60a4489728b8a86050d619cd"
+  }
+]

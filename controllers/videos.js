@@ -2,7 +2,6 @@ const path = require('path')
 const fs = require('fs')
 const asyncHandler = require('../middleware/async')
 const ErrorResponse = require('../utils/errorResponse')
-
 const Video = require('../models/Video')
 
 // @desc    Get videos

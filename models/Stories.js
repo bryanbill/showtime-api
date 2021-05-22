@@ -11,9 +11,9 @@ const StoriesSchema = new Schema(
       type: String,
       default: "",
     },
-    thumbnailUr: {
-      type: String,
-      default: "no-photo.jpg",
+    time: {
+      type: Date,
+      default: Date.now(),
     },
     url: {
       type: String,

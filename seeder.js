@@ -15,6 +15,7 @@ const Reply = require("./models/Reply");
 const Subs = require("./models/Subscription");
 const Video = require("./models/Video");
 const Subscription = require("./models/Subscription");
+const { isNull } = require("util");
 
 //load the file constants
 const commentsFile = `${__dirname}/_data/comments.json`;
@@ -52,6 +53,7 @@ const importData = async () => {
     await History.create(history);
     await Feeling.create(feelings);
     await Comment.create(comments);
+    await Subs.create(subs);
     console.log("Data Imported...".green.inverse);
     process.exit();
   } catch (err) {
@@ -85,8 +87,10 @@ const createFiles = async () => {
 
 const backupData = async (query) => {
   try {
-    if (isNaN(query.length)) {
-      query = {};
+    if (query.length === null) {
+      query = {
+        id: query.id,
+      };
     }
     let l = [1, 2, 3, 4, 5, 6, 7, 8];
     let commentResponse = await Comment.find(query.id);
@@ -113,7 +117,7 @@ const backupData = async (query) => {
     fs.writeFileSync(historyFile, JSON.stringify(historyResponse));
     console.log("7/" + l.length.toString());
     fs.writeFileSync(subsFile, JSON.stringify(subResponse));
-    console.log("8/" + l.length.toString() + " Done!".green.inverse);
+    console.log("8/" + l.length.toString() + "\nDone!".green.inverse);
     process.exit();
   } catch (e) {
     console.log(e + "!".red.inverse);

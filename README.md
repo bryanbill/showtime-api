@@ -1,6 +1,6 @@
-# VueTube RESTful API - YouTube Clone
+# Showtime RESTful API - YouTube Clone
 
-> VueTube is a YouTube clone built with nodejs, expressjs & mongodb.
+> Showtime is a YouTube clone built with nodejs, expressjs & mongodb.
 
 ## Features
 
